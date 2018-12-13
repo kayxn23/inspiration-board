@@ -27,6 +27,7 @@ class Board extends Component {
     .then( (response) => {
       console.log('API response success!', response);
       const {cards} = this.state;
+      console.log("printing this.state cards array",this.state);
       cards.push(newCard);
       this.setState({
         cards
@@ -66,10 +67,13 @@ class Board extends Component {
   render() {
     return (
       <div>
+      <section>
+      <NewCardForm addCardCallback={this.addCard}/>
+      </section>
+
+      <section>
         Board
         {this.makeCards()}
-        <section>
-        <NewCardForm addCardCallback={this.addCard}/>
         </section>
       </div>
     )

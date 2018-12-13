@@ -5,6 +5,8 @@ import './NewCardForm.css';
 
 const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"]
 
+console.log(emoji.unicode);
+
 class NewCardForm extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +23,13 @@ class NewCardForm extends Component {
     });
   }
 
+  emojiDropDown = () => {
+    const emojiIcons = emoji.unicode;
+    return emojiIcons.map(emojiIcon => {
+      return <option>{emojiIcon}</option>;
+    });
+  };
+
   onFormChange = (event) => {
   const field = event.target.name;
   const value = event.target.value;
@@ -32,9 +41,8 @@ class NewCardForm extends Component {
 
   onSubmit = (event) => {
   event.preventDefault();
-  const { text, emoji } = this.state;
 
-  if (text === '') return;
+  if (this.state.text === '') return;
 
   console.log(event);
   this.props.addCardCallback(this.state);
@@ -50,7 +58,9 @@ class NewCardForm extends Component {
       </div>
       <div>
         <label className="new-card-form--label" htmlFor="species">Emoji</label>
-        <input name="emoji" placeholder="emoji here!" onChange={this.onFormChange} value={this.state.emoji} />
+        <select name="emoji" placeholder="emoji here!" onChange={this.onFormChange}>
+        {this.emojiDropDown()}
+        </select>
       </div>
 
       <input className="btn btn-success new-card-form--submit" type="submit" name="submit" value="Add a Card" />
