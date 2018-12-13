@@ -19,6 +19,21 @@ class Board extends Component {
     };
   }
 
+  addCard = (newCard) => {
+    const apiPayload = {
+      ...newCard,
+    };
+    axios.post(URL, apiPayload )
+    .then( (response) => {
+      console.log('API response success!', response);
+      const {cards} = this.state;
+      cards.push(newCard);
+      this.setState({
+        cards
+      })
+    });
+  }
+
   makeCards = () => {
     return this.state.cards.map( (card) => {
       return <Card key={card.id} id={card.id} text={card.text} emoji={card.emoji}/>
@@ -53,6 +68,9 @@ class Board extends Component {
       <div>
         Board
         {this.makeCards()}
+        <section>
+        <NewCardForm addCardCallback={this.addCard}/>
+        </section>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import './App.css';
 import Board from './components/Board';
 
 class App extends Component {
+
   render() {
     return (
       <section>
@@ -14,6 +15,8 @@ class App extends Component {
           boardName={`Kay`}
           />
       </section>
+
+
     );
   }
 }
