@@ -7,6 +7,8 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
+
+
 class Board extends Component {
   constructor() {
     super();
@@ -16,10 +18,17 @@ class Board extends Component {
     };
   }
 
+  makeCards = () => {
+    return CARD_DATA["cards"].map( (card) => {
+      return <Card id={card.id} text={card.text} emoji={card.emoji}/>
+    });
+  }
+
   render() {
     return (
       <div>
         Board
+        {this.makeCards()}
       </div>
     )
   }
