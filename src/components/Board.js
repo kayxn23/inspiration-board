@@ -100,15 +100,9 @@ class Board extends Component {
 
   render() {
     return (
-      <div>
-      <section>
+      <div className="board">
       <NewCardForm addCardCallback={this.addCard} />
-      </section>
-
-      <section>
-        Board
         {this.makeCards()}
-        </section>
       </div>
     )
   }

@@ -24,7 +24,7 @@ class Card extends Component {
         <button
         onClick={()=> this.props.removeCardCallback(this.props.id)}
         type="button"
-        className="close pet-card--close-btn"
+        className="card__delete"
         aria-label="Close"
         >
         <span aria-hidden="true">&times;</span>

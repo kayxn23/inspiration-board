@@ -21,87 +21,45 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        "Card",
+      "children": <section
+        className="card__content"
+      >
         <section
           className="card__content-text"
         >
           <h3>
             dumpster fire!
           </h3>
-        </section>,
+        </section>
         <section
           className="card__content-emoji"
         >
           <p>
             dumpster-fire-emoji
           </p>
-        </section>,
-      ],
+        </section>
+        <button
+          aria-label="Close"
+          className="card__delete"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ×
+          </span>
+        </button>
+      </section>,
       "className": "card",
     },
     "ref": null,
-    "rendered": Array [
-      "Card",
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <h3>
-            dumpster fire!
-          </h3>,
-          "className": "card__content-text",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "dumpster fire!",
-          },
-          "ref": null,
-          "rendered": "dumpster fire!",
-          "type": "h3",
-        },
-        "type": "section",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <p>
-            dumpster-fire-emoji
-          </p>,
-          "className": "card__content-emoji",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "dumpster-fire-emoji",
-          },
-          "ref": null,
-          "rendered": "dumpster-fire-emoji",
-          "type": "p",
-        },
-        "type": "section",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          "Card",
           <section
             className="card__content-text"
           >
@@ -116,12 +74,23 @@ ShallowWrapper {
               dumpster-fire-emoji
             </p>
           </section>,
+          <button
+            aria-label="Close"
+            className="card__delete"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>,
         ],
-        "className": "card",
+        "className": "card__content",
       },
       "ref": null,
       "rendered": Array [
-        "Card",
         Object {
           "instance": null,
           "key": undefined,
@@ -170,7 +139,198 @@ ShallowWrapper {
           },
           "type": "section",
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "aria-label": "Close",
+            "children": <span
+              aria-hidden="true"
+            >
+              ×
+            </span>,
+            "className": "card__delete",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-hidden": "true",
+              "children": "×",
+            },
+            "ref": null,
+            "rendered": "×",
+            "type": "span",
+          },
+          "type": "button",
+        },
       ],
+      "type": "section",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <section
+          className="card__content"
+        >
+          <section
+            className="card__content-text"
+          >
+            <h3>
+              dumpster fire!
+            </h3>
+          </section>
+          <section
+            className="card__content-emoji"
+          >
+            <p>
+              dumpster-fire-emoji
+            </p>
+          </section>
+          <button
+            aria-label="Close"
+            className="card__delete"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              ×
+            </span>
+          </button>
+        </section>,
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <section
+              className="card__content-text"
+            >
+              <h3>
+                dumpster fire!
+              </h3>
+            </section>,
+            <section
+              className="card__content-emoji"
+            >
+              <p>
+                dumpster-fire-emoji
+              </p>
+            </section>,
+            <button
+              aria-label="Close"
+              className="card__delete"
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                ×
+              </span>
+            </button>,
+          ],
+          "className": "card__content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <h3>
+                dumpster fire!
+              </h3>,
+              "className": "card__content-text",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "dumpster fire!",
+              },
+              "ref": null,
+              "rendered": "dumpster fire!",
+              "type": "h3",
+            },
+            "type": "section",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <p>
+                dumpster-fire-emoji
+              </p>,
+              "className": "card__content-emoji",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "dumpster-fire-emoji",
+              },
+              "ref": null,
+              "rendered": "dumpster-fire-emoji",
+              "type": "p",
+            },
+            "type": "section",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-label": "Close",
+              "children": <span
+                aria-hidden="true"
+              >
+                ×
+              </span>,
+              "className": "card__delete",
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "aria-hidden": "true",
+                "children": "×",
+              },
+              "ref": null,
+              "rendered": "×",
+              "type": "span",
+            },
+            "type": "button",
+          },
+        ],
+        "type": "section",
+      },
       "type": "div",
     },
   ],
