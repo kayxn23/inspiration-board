@@ -19,28 +19,33 @@ class Board extends Component {
     };
   }
 
-  removeCard = (cardIndex) => {
-    //is it bad practice to directly itereate thru state.cards?
-    let deleteIndex = 0;
-    const modifiedCards = this.state.cards
-     modifiedCards.forEach((card, index) => {
-       if(cardIndex === index){
-         deleteIndex = index;
-       }
-     });
+  removeCard = (cardId) => {
+    console.log("cardid", cardId);
+    let DELETE_URL = `https://inspiration-board.herokuapp.com/cards/${cardId}`
+    axios.delete(DELETE_URL)
+     .then( (response) => {
+       console.log("printing response in delete", response);
+       //is it bad practice to directly itereate thru state.cards?
+       let deleteIndex = 0;
+       const modifiedCards = this.state.cards
+        modifiedCards.forEach((card, index) => {
+          if(cardId === index){
+            deleteIndex = index;
+          }
+        });
 
-     modifiedCards.splice(deleteIndex, 1);
+        modifiedCards.splice(deleteIndex, 1);
 
-     this.setState({
-       cards: modifiedCards
+        this.setState({
+          cards: modifiedCards
+        })
+
      })
   }
 
   addCard = (newCard) => {
-    const apiPayload = {
-      ...newCard,
-    };
-    axios.post(URL, apiPayload )
+    console.log("what is new cards",newCard);
+    axios.post(URL, newCard)
     .then( (response) => {
       console.log('API response success!', response);
       const {cards} = this.state;
@@ -49,8 +54,14 @@ class Board extends Component {
       this.setState({
         cards
       })
+    })
+    .catch(error => {
+      console.log(error.message);
+      this.setState({
+        errorMessage: error.message
+      });
     });
-  }
+  };
 
   makeCards = () => {
     return this.state.cards.map( (card) => {
@@ -59,6 +70,9 @@ class Board extends Component {
     });
   }
 
+//this will get called when we pull in data and adding them to our state (card in state)
+//componentDidMount happens automatically
+//here we want to add some extra things to componentDidMount
   componentDidMount() {
     axios.get(this.props.url + this.props.boardName + "/cards")
     .then((response) => {
@@ -70,12 +84,14 @@ class Board extends Component {
         console.log("loggin newCard",newCard.card);
 
         return newCard;
-      }).filter((card, index) => index < 10)
+      });
+
       this.setState({
         cards: cards,
       });
     })
     .catch((error) => {
+      console.log("printing error mesg", error);
       this.setState({
         errorMessage: error.message,
       })
