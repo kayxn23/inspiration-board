@@ -37,6 +37,7 @@ class Board extends Component {
 
   makeCards = () => {
     return this.state.cards.map( (card) => {
+      console.log("printing card id from borad",card.id);
       return <Card key={card.id} id={card.id} text={card.text} emoji={card.emoji}/>
     });
   }
