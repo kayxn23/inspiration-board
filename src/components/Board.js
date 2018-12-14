@@ -19,6 +19,23 @@ class Board extends Component {
     };
   }
 
+  removeCard = (cardIndex) => {
+    //is it bad practice to directly itereate thru state.cards?
+    let deleteIndex = 0;
+    const modifiedCards = this.state.cards
+     modifiedCards.forEach((card, index) => {
+       if(cardIndex === index){
+         deleteIndex = index;
+       }
+     });
+
+     modifiedCards.splice(deleteIndex, 1);
+
+     this.setState({
+       cards: modifiedCards
+     })
+  }
+
   addCard = (newCard) => {
     const apiPayload = {
       ...newCard,
@@ -38,7 +55,7 @@ class Board extends Component {
   makeCards = () => {
     return this.state.cards.map( (card) => {
       console.log("printing card id from borad",card.id);
-      return <Card key={card.id} id={card.id} text={card.text} emoji={card.emoji}/>
+      return <Card key={card.id} id={card.id} text={card.text} emoji={card.emoji} removeCardCallback={this.removeCard}/>
     });
   }
 
@@ -69,7 +86,7 @@ class Board extends Component {
     return (
       <div>
       <section>
-      <NewCardForm addCardCallback={this.addCard}/>
+      <NewCardForm addCardCallback={this.addCard} />
       </section>
 
       <section>

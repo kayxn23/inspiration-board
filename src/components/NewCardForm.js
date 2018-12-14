@@ -49,6 +49,8 @@ class NewCardForm extends Component {
   this.resetState();
 }
 
+
+
   render() {
   return (
     <form onSubmit={this.onSubmit} name="new-card-form" id="new-card-form" className="new-card-form">

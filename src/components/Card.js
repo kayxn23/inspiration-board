@@ -5,6 +5,8 @@ import emoji from 'emoji-dictionary';
 import './Card.css';
 
 class Card extends Component {
+
+
   render() {
     // console.log('card props here:',this.props);
     return (
@@ -18,6 +20,16 @@ class Card extends Component {
         <section className="card__content-emoji">
         {this.props.emoji &&  <p>{emoji.getUnicode(this.props.emoji) ? emoji.getUnicode(this.props.emoji) : this.props.emoji}</p>}
         </section>
+
+        <button
+        onClick={this.props.removeCardCallback(this.props.id)}
+        type="button"
+        className="close pet-card--close-btn"
+        aria-label="Close"
+        >
+        <span aria-hidden="true">&times;</span>
+
+</button>
 
         </section>
       </div>
